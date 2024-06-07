@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar mode="ios" color="primary">
+    <ion-title>
+      Sing in
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+
+
+  <ion-grid fixed class="ion-margin-top">
+    <ion-row>
+      <ion-col sizeLg="6" offsetLg="3" sizeMd="6" offsetMd="3" sizeXl="6" offsetXl="3">
+
+        <form [formGroup]="loginForm" #signUp  name="loanForm">
+          <ion-card color="primary" class="ion-padding">
+
+            <ion-item lines="none" color="light">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-label color="primary" position="floating">Email address</ion-label>
+              <ion-input type="email" formControlName="email" name="email"  placeholder="Enter email"></ion-input>
+            </ion-item>
+  
+            <ion-item lines="none" color="light">
+              <ion-icon slot="start" name="lock"></ion-icon>
+              <ion-label color="primary" position="floating">Password</ion-label>
+              <ion-input formControlName="password"   name="password" type="password" placeholder="Enter password"></ion-input>
+            </ion-item>
+  
+            <div class="ion-margin-top">
+              <div class="ion-text-center">
+                <ion-button [disabled]=" loading || !loginForm.valid" 
+                (click)="submit()" expand="block"  color="light">
+                  <div *ngIf="!loading">SIGN IN</div> <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+                </ion-button>
+              </div>
+    
+            </div>
+
+        
+          </ion-card>
+        </form>
+
+        <div class="ion-text-center">
+          <ion-button [routerLink]="['/sign-up']"   color="light">
+          CREATE ACCOUNT
+          </ion-button>
+        </div>
+    
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

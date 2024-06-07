@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar mode="ios" color="primary">
+    <ion-title>
+      dashboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-padding">
+
+
+  <ion-grid fixed class="ion-margin-top">
+    <ion-row>
+      <ion-col sizeLg="6" offsetLg="3" sizeMd="6" offsetMd="3" sizeXl="6" offsetXl="3">
+
+        <ion-list>
+          <ion-card class="ion-padding ion-margin">
+            <ion-text color="dark">
+              <h1>Welcome {{person?.name}}! </h1>
+            </ion-text>
+          </ion-card>
+          <ion-item>
+           
+            <ion-text color="dark">
+              <h3 class="ion-font-weight-bold"> Balance {{balance | currency:"₦"}} </h3>
+            </ion-text>
+          </ion-item>
+        </ion-list>
+        <div *ngIf="userRole === 'ADMIN'" class="ion-text-center ion-margin">
+          <ion-button  [routerLink]="['/admin-dashboard']"   color="light" class="">
+            admin dashboard
+          </ion-button>
+        </div>
+
+        <div class="ion-text-center ion-margin">
+          <ion-button (click)="performTransFer()"  color="light" class="">
+            transfer to user
+          </ion-button>
+        </div>
+
+        <div class="ion-text-center ion-margin">
+          <ion-button (click)="logout()"  color="danger" class="">
+           logout
+          </ion-button>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

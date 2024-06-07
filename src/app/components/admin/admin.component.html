@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar mode="ios" color="primary">
+    <ion-title>
+      Admin User
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid fixed class="ion-margin-top">
+    <ion-row>
+      <ion-col sizeLg="6" offsetLg="3" sizeMd="6" offsetMd="3" sizeXl="6" offsetXl="3">
+
+        <ion-list *ngFor="let item of usersList">
+          <ion-item>
+            <ion-label>{{item?.name}} </ion-label>
+            <div slot="end">{{item?.email}} </div>
+          </ion-item>
+          <div>₦ {{item?.balance}} </div>
+          <ion-toggle></ion-toggle>
+        </ion-list>
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
